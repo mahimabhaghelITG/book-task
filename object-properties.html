@@ -50,13 +50,13 @@
             event.preventDefault();
             var formData = new FormData(this);
             
-            var formObject = Object.fromEntries(formData);
-            console.log(formObject);
-            var fromEntries = Object.entries(formObject);
-            console.log(fromEntries);
+            var formObject = Object.fromEntries(formData.entries());
+            // console.log(formObject);
+            // var fromEntries = Object.entries(formObject);
+            // console.log(fromEntries);
             var secondData = {lname:"Jackson"}
-             Object.assign(fromEntries,secondData);
-             var getData = Object.entries(fromEntries);
+             Object.assign(formObject,secondData);
+             var getData = Object.entries(formObject);
              console.log(getData);
            });
           </script>
