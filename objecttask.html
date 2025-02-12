@@ -5,7 +5,7 @@
     </head>
     <body>
         <h2>Object Task</h2>
-        <form name="myForm"  onsubmit="return validateForm(event)" >
+        <form name="myForm"  onsubmit="validateForm(event)" >
             <label>
                 <input type="text" name="fname" value="">
             </label>
@@ -19,10 +19,7 @@
                 event.preventDefault(); 
                 var formMain = document.querySelector('form');
                 var dataMain = new FormData(formMain);
-                console.log(dataMain);
                 var fromdata = Object.fromEntries(dataMain);
-                console.log(fromdata);               
-                 return false;
             }
           </script>
     </body>
