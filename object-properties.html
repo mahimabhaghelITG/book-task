@@ -45,7 +45,20 @@
           </form>
         </div>
           <script>
-          
+           var form = document.querySelector('form');
+           form.addEventListener('submit',function(event){
+            event.preventDefault();
+            var formData = new FormData(this);
+            
+            var formObject = Object.fromEntries(formData);
+            console.log(formObject);
+            var fromEntries = Object.entries(formObject);
+            console.log(fromEntries);
+            var secondData = {lname:"Jackson"}
+             Object.assign(fromEntries,secondData);
+             var getData = Object.entries(fromEntries);
+             console.log(getData);
+           });
           </script>
     </body>
 </html>
