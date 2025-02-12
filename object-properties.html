@@ -41,7 +41,7 @@
             </div>
             <input type="submit" value="Submit">
 
-            <h2></h2>
+            <h4></h4>
           </form>
         </div>
           <script>
@@ -57,7 +57,11 @@
             var secondData = {lname:"Jackson"}
              Object.assign(formObject,secondData);
              var getData = Object.entries(formObject);
-             document.querySelector("h2").innerHTML = getData;
+            let text = "";
+            for (let [key, value] of getData) {
+            text += key + ": " + value + "<br>";
+            }
+            document.querySelector('h4').innerHTML = text;
            });
           </script>
     </body>
