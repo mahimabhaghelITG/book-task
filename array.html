@@ -7,6 +7,8 @@
 <p id="looping"></p>
 <p id="foreach"></p>
 <div id="lowest_number"></div>
+<ul id="lowest_number_second"></ul>
+<ul id="highet_numner"></ul>
 <script>
 const cars = ["Saab", "Volvo", "BMW"];
 cars[2] = "Safari";
@@ -64,21 +66,31 @@ for (let i = 0; i < arr.length; i++) {
     }
 }
 
-var textlenth = "<ul>";
-textnum.forEach(eachFunction);
-textlenth += "</ul>";
+// var textlenth = "<ul>";
+// textnum.forEach(eachFunction);
+// textlenth += "</ul>";
 
-document.getElementById("lowest_number").innerHTML = textlenth;
-function eachFunction(value,index){
-    console.log(value);
-    if(index <= 2){
-        textlenth += "<li>" + value + "</li>";
-    }
+// document.getElementById("lowest_number").innerHTML = textlenth;
+// function eachFunction(value,index){
+//     // console.log(value);
+//     if(index <= 2){
+//         textlenth += "<li>" + value + "</li>";
+//     }
     
-}   
+// }   
 
-// var citrusD = arr.sort((a, b) => b - a);
 
+
+var lowset = textnum.slice(0,3);
+console.log(lowset);
+for (let a in lowset) {
+    document.getElementById('lowest_number_second').innerHTML += '<li>' + lowset[a] + '</li>';
+}
+
+var highest = textnum.slice(0,3).reverse();
+for (let a in highest) {
+    document.getElementById('highet_numner').innerHTML += '<li>' + highest[a] + '</li>';
+}
 </script>
 
 </body>
