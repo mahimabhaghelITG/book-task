@@ -9,6 +9,7 @@
 <div id="lowest_number"></div>
 <ul id="lowest_number_second"></ul>
 <ul id="highet_numner"></ul>
+<ul id="countlength"></ul>
 <script>
 const cars = ["Saab", "Volvo", "BMW"];
 cars[2] = "Safari";
@@ -91,6 +92,18 @@ var highest = textnum.slice(0,3).reverse();
 for (let a in highest) {
     document.getElementById('highet_numner').innerHTML += '<li>' + highest[a] + '</li>';
 }
+let count = {};
+citrus.forEach(function(x){
+    // console.log(x);
+    var countmain = count[x] || 0;  3 
+    count[x] = countmain + 1;
+});
+const countmain = Object.entries(count)
+for (const [key, value] of countmain) {
+    document.getElementById('countlength').innerHTML += '<li>' + key + ':' + value + '</li>';
+}
+console.log(count);
+
 </script>
 
 </body>
