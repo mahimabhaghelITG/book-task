@@ -3,6 +3,7 @@
 <body>
 <h1>JavaScript Arrays</h1>
 
+<p id="tesr"></p>
 <p id="demo"></p>
 <p id="looping"></p>
 <p id="foreach"></p>
@@ -11,6 +12,17 @@
 <ul id="highet_numner"></ul>
 <ul id="countlength"></ul>
 <script>
+const nummain = [1,7,8,9,0,4,5,5,7,8,9,10,23,34,23,56,687,87,90,465,655,655,8798,79879,68,35,4653,365,35,35,35,35];
+var mainsetarry = new Set(nummain);
+console.log(mainsetarry);
+
+
+let letnum = "";
+for (const x of mainsetarry) {
+    letnum += x + "<br>";
+}
+document.getElementById("tesr").innerHTML = letnum;
+
 const cars = ["Saab", "Volvo", "BMW"];
 cars[2] = "Safari";
 console.log(cars.length );
@@ -54,8 +66,7 @@ console.log(Array.isArray(fruits_of));
 console.log(fruits_of instanceof Array);
 
 
-const arr = [4,4,4,2,2,2,8,4,4,7,7,7,582,753,951,654,0.2,0.5,.5,.6,.2, 0,1,2,4,7,88,99,77,44,55,88,77,99,00,22,.55,66,77,951,753,850];
-// document.getElementById("lowest_number").innerHTML = citrus ;
+const arr = [4,4,4,2,2,2,8,4,4,7,7,7,582,753,951,654,0.2,0.5,.5,.6,.2, 0,1,2,4,7,88,99,77,44,55,88,77,99,0,22,.55,66,77,951,753,850];
 var citrus = arr.sort((a, b) => a - b);
 
 let textnum = [];
