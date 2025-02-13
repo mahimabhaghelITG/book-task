@@ -4,10 +4,35 @@
 <h1>JavaScript Arrays</h1>
 
 <p id="demo"></p>
-
+<p id="looping"></p>
+<p id="foreach"></p>
 <script>
 const cars = ["Saab", "Volvo", "BMW"];
+cars[2] = "Safari";
+console.log(cars.length );
+cars.sort();
 document.getElementById("demo").innerHTML = cars;
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let fLen = fruits.length;
+
+let text = "<ul>";
+for (let i = 0; i < fLen; i++) {
+  text += "<li>" + fruits[i] + "</li>";
+}
+text += "</ul>";
+
+let eachLoop = "<ul>";
+    fruits.push("Lemon"); // add lemon
+    var fruitSort = fruits.sort(); // sort value 
+    fruitSort.forEach(eachFunction);
+    function eachFunction(fruit){
+      
+        eachLoop += "<li>" + fruit + "</li>"; // print one by one value 
+    }
+    
+document.getElementById("looping").innerHTML = text;
+document.getElementById("foreach").innerHTML = eachLoop ;
 </script>
 
 </body>
