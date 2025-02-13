@@ -6,7 +6,7 @@
 <p id="demo"></p>
 <p id="looping"></p>
 <p id="foreach"></p>
-<p id="lowest_number"></p>
+<div id="lowest_number"></div>
 <script>
 const cars = ["Saab", "Volvo", "BMW"];
 cars[2] = "Safari";
@@ -52,35 +52,33 @@ console.log(fruits_of instanceof Array);
 
 
 const arr = [4,4,4,2,2,2,8,4,4,7,7,7,582,753,951,654,0.2,0.5,.5,.6,.2, 0,1,2,4,7,88,99,77,44,55,88,77,99,00,22,.55,66,77,951,753,850];
-//document.getElementById("lowest_number").innerHTML = ;
-const citrus = arr.sort(function(a, b){return b - a});
-console.log(citrus);
-var filternum = citrus.filter(myFunction);
-let textNum = '';
-function myFunction(value, index, array) {
-console.log(value);
-    for (let i = 0; i < 3; i++) {
-        textNum += value ;
-    }
-  return value ;
-}
-// let lowsetNum = '';
-// arr.forEach(myArrayMin);
-// function myArrayMin(point) {
-   
-//     // myArrayMinnum(point);
-//     console.log(point);
-// }
-// function myArrayMinnum(point) {
-//   return Math.min.apply(null, point);
-// }
-// let text = "<ul>";
-// fruits.forEach(myFunction);
-// text += "</ul>";
+// document.getElementById("lowest_number").innerHTML = citrus ;
+var citrus = arr.sort((a, b) => a - b);
 
-// function myFunction(value) {
-//   text += "<li>" + value + "</li>";
-// }
+let textnum = [];
+for (let i = 0; i < arr.length; i++) {
+    // console.log(arr[i])
+    if (!textnum.includes(arr[i])) { 
+        // console.log(arr[i]);
+        textnum.push(arr[i]);
+    }
+}
+
+var textlenth = "<ul>";
+textnum.forEach(eachFunction);
+textlenth += "</ul>";
+
+document.getElementById("lowest_number").innerHTML = textlenth;
+function eachFunction(value,index){
+    console.log(value);
+    if(index <= 2){
+        textlenth += "<li>" + value + "</li>";
+    }
+    
+}   
+
+// var citrusD = arr.sort((a, b) => b - a);
+
 </script>
 
 </body>
