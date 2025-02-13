@@ -33,6 +33,21 @@ let eachLoop = "<ul>";
     
 document.getElementById("looping").innerHTML = text;
 document.getElementById("foreach").innerHTML = eachLoop ;
+// Create an array with 40 undefined elements:
+const points = new Array(40); 
+console.log(points); // undefined 
+
+// Create an array with one element:
+const points_one = [40]; // one ele 
+console.log(points_one[0]);
+
+const points_two = new Array(40,100); 
+console.log(points_two[0]); // 2 ele
+
+const fruits_of = ["Banana", "Orange", "Apple", "Mango"];
+console.log(typeof fruits_of );
+console.log(Array.isArray(fruits_of));
+console.log(fruits_of instanceof Array);
 </script>
 
 </body>
