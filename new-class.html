@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Classes</h1>
+<p>Creating two car objects from a car class:</p>
+
+<p id="demo"></p>
+
+<script>
+class ProductAdd {
+    constructor(title){
+     this.title = title;
+    
+    }
+}
+
+class SecondProduct extends ProductAdd {
+    constructor(title,price){
+        super(title);
+        this.product = price;
+    }
+    show() {
+    return  this.product;
+    }
+}
+//const productFirst = new ProductAdd('Field Design','$200',45);
+const productSecond = new SecondProduct('lashes','$20',189);
+
+document.getElementById("demo").innerHTML = productSecond.show();
+</script>
+
+</body>
+</html>

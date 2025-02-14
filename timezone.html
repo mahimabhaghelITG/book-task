@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timeZone</title>
+</head>
+<body>
+    <!-- <p id="timeZone"></p> -->
+    <input type="date" id="agedate">
+    <div class="">My Age: <span class="agecount"></span></div>
+    <script>
+        // var todayTime = new Date().getTime();
+        // console.log(todayTime);
+
+
+        var today = new Date();
+var inputDate = document.querySelector('#agedate');
+inputDate.addEventListener('input', function () {
+    var dateofbirth = inputDate.value;
+    var dob = new Date(dateofbirth);
+
+    var dobDay = dob.getDate();
+    var dobMonth = dob.getMonth();
+    var dobYear = dob.getFullYear();
+
+    var currentDay = today.getDate();
+    var currentMonth = today.getMonth();
+    var currentYear = today.getFullYear();
+
+    var yearDiff = currentYear - dobYear;
+    var monthDiff = currentMonth - dobMonth;
+    var dayDiff = currentDay - dobDay;
+
+    // Adjust if the current day is less than the birth day
+    if (dayDiff < 0) {
+        dayDiff += new Date(currentYear, currentMonth, 0).getDate();
+        monthDiff -= 1;
+    }
+
+    // Adjust if the current month is less than the birth month
+    if (monthDiff < 0) {
+        monthDiff += 12;
+        yearDiff -= 1;
+    }
+
+    var mainAge = `${yearDiff} Year ${monthDiff} Month ${dayDiff} Day.`;
+    document.querySelector('.agecount').innerHTML = mainAge;
+});
+
+    </script>
+</body>
+</html>

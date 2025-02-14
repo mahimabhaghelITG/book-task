@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="date" id="agedate">
+    <div class="">My Age: <span class="agecount"></span></div>
+    <script>
+        var today = new Date();
+var inputDate = document.querySelector('#agedate');
+inputDate.addEventListener('input', function () {
+    var dateofbirth = inputDate.value;
+    var dob = new Date(dateofbirth);
+
+    var dobDay = dob.getDate();
+    var dobMonth = dob.getMonth() +1;
+    var dobYear = dob.getFullYear();
+// console.log(dobMonth);
+    var currentDay = today.getDate();
+    var currentMonth = today.getMonth() +1;
+    var currentYear = today.getFullYear();
+    // console.log(currentMonth);
+
+    var yearDiff = currentYear - dobYear;
+    var monthDiff = currentMonth - dobMonth;
+    // console.log(monthDiff);
+    var dayDiff = currentDay - dobDay;
+    // var curr = new Date(currentYear, currentMonth, 0).getDate();
+    // dayDiff = curr + dayDiff;
+    if (dayDiff < 0) {
+        curr = new Date(currentYear, currentMonth, 0).getDate();
+        // console.log(curr);
+        dayDiff = curr + dayDiff;
+        monthDiff -= 1;
+        // console.log(monthDiff);
+    }
+
+    if (monthDiff < 0) {
+        monthDiff += 12;
+        yearDiff -= 1;
+    }
+
+    var mainAge = `${yearDiff} Year ${monthDiff} Month ${dayDiff} Day.`;
+    document.querySelector('.agecount').innerHTML = mainAge;
+});
+
+      
+
+    </script>
+</body>
+</html>
