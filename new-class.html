@@ -5,7 +5,8 @@
 <p>Creating two car objects from a car class:</p>
 
 <p id="demo"></p>
-
+<p id="demoget"></p>
+<p id="demostatic"></p>
 <script>
 class ProductAdd {
     constructor(title){
@@ -27,6 +28,39 @@ class SecondProduct extends ProductAdd {
 const productSecond = new SecondProduct('lashes','$20',189);
 
 document.getElementById("demo").innerHTML = productSecond.show();
+
+class Car {
+  constructor(brand) {
+    this.carname = brand;
+  }
+  get cnam() {
+    return this.carname;
+  }
+  set cnam(x) {
+    this.carname = x;
+  }
+}
+
+const myCar = new Car("Ford");
+
+document.getElementById("demoget").innerHTML = myCar.cnam;
+
+class Carname {
+  constructor(name) {
+    this.name = name;
+  }
+  static hello() {
+    return "Hello!!";
+  }
+  static main(m){
+  	return m.name;
+  }
+}
+
+const myCars = new Carname("Sam");
+
+//You can call 'hello()' on the Car Class:
+document.getElementById("demostatic").innerHTML = Carname.hello() + ' : ' + Carname.main(myCars);
 </script>
 
 </body>
