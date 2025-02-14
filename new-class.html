@@ -8,16 +8,25 @@
 
 <script>
 class ProductAdd {
-    constructor(title,price,quantity){
+    constructor(title){
      this.title = title;
-     this.price = price;
-     this.quantity = quantity;
+    
     }
 }
-const productFirst = new ProductAdd('Field Design','$200',45);
-const productSecond = new ProductAdd('lashes','$20',189);
 
-document.getElementById('demo').innerHTML = productFirst.title;
+class SecondProduct extends ProductAdd {
+    constructor(title,price){
+        super(title);
+        this.product = price;
+    }
+    show() {
+    return  this.product;
+    }
+}
+//const productFirst = new ProductAdd('Field Design','$200',45);
+const productSecond = new SecondProduct('lashes','$20',189);
+
+document.getElementById("demo").innerHTML = productSecond.show();
 </script>
 
 </body>
