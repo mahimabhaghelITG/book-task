@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Classes</h1>
+<p>Creating two car objects from a car class:</p>
+
+<ul id="addbook"></ul>
+<p id="demoget"></p>
+<p id="demostatic"></p>
+<script>
+
+class Book {
+    constructor(title,author,year){
+        this.title = title;
+        this.author = author;
+        this.year = year;
+    }
+}
+
+class Library {
+    constructor(){
+        this.books = [];
+    }
+    addBook(book){
+        this.books.push(book);
+        console.log(book.title);
+    }
+    removeBook(titlebase){
+        const booksAll = this.books;
+        var indexfind = booksAll.findIndex(book => book.title == titlebase);
+        booksAll.splice(indexfind, 1);
+        console.log(booksAll);
+        
+    }
+    listBook(){
+        var bookList = this.books.length;
+        console.log(`all ${bookList} book aviable`);
+        
+    }
+    findBook(bookfind){
+        const booksAll = this.books;
+        // const matchedIndex = booksAll.filter(function (book) { return book.year; }).indexOf(bookfind);
+// console.log(booksAll);
+        const matchedIndex = booksAll.filter(book =>
+            book.title ==bookfind || 
+            book.author == bookfind ||
+            book.year == bookfind 
+        );
+        console.log(matchedIndex);
+        return matchedIndex;
+    }
+    getBookInfo(title) {
+        const booksAll = this.books;
+        const matchedIndex = booksAll.filter(book =>
+         book.title == title
+        );
+        var book = matchedIndex[0];
+        console.log(`Author: ${book.author}, Year: ${book.year}`);
+        return matchedIndex;
+    }
+}
+
+const mylibray = new Library();
+
+const book = new Book("Title", "authore", "year");
+const newBookone = new Book("The Gaint","J.d mark",1998);
+const newBooktwo = new Book("The Loard","A.M",2003);
+const newBookthree = new Book("The wind","Patrick",1889);
+mylibray.addBook(book);
+mylibray.addBook(newBookone);
+mylibray.addBook(newBooktwo);
+mylibray.addBook(newBookthree);
+
+mylibray.removeBook("The Loard");
+mylibray.listBook();
+mylibray.findBook(1998);
+mylibray.getBookInfo("The wind");
+
+</script>
+
+</body>
+</html>
