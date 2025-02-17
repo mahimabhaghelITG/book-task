@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Arrays</h1>
+
+<p id="tesr"></p>
+<p id="demo"></p>
+<p id="looping"></p>
+<p id="foreach"></p>
+<div id="lowest_number"></div>
+<ul id="lowest_number_second"></ul>
+<ul id="highet_numner"></ul>
+<ul id="countlength"></ul>
+<script>
+const nummain = [1,7,8,9,0,4,5,5,7,8,9,10,23,34,23,56,687,87,90,465,655,655,8798,79879,68,35,4653,365,35,35,35,35];
+var mainsetarry = new Set(nummain);
+console.log(mainsetarry);
+
+
+let letnum = "";
+for (const x of mainsetarry) {
+    letnum += x + "<br>";
+}
+document.getElementById("tesr").innerHTML = letnum;
+
+const cars = ["Saab", "Volvo", "BMW"];
+cars[2] = "Safari";
+console.log(cars.length );
+cars.sort();
+document.getElementById("demo").innerHTML = cars;
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let fLen = fruits.length;
+
+let text = "<ul>";
+for (let i = 0; i < fLen; i++) {
+  text += "<li>" + fruits[i] + "</li>";
+}
+text += "</ul>";
+
+let eachLoop = "<ul>";
+    fruits.push("Lemon"); // add lemon
+    var fruitSort = fruits.sort(); // sort value 
+    fruitSort.forEach(eachFunction);
+    function eachFunction(fruit){
+      
+        eachLoop += "<li>" + fruit + "</li>"; // print one by one value 
+    }
+    
+document.getElementById("looping").innerHTML = text;
+document.getElementById("foreach").innerHTML = eachLoop ;
+// Create an array with 40 undefined elements:
+const points = new Array(40); 
+console.log(points); // undefined 
+
+// Create an array with one element:
+const points_one = [40]; // one ele 
+console.log(points_one[0]);
+
+const points_two = new Array(40,100); 
+console.log(points_two[0]); // 2 ele
+
+const fruits_of = ["Banana", "Orange", "Apple", "Mango"];
+console.log(typeof fruits_of );
+console.log(Array.isArray(fruits_of));
+console.log(fruits_of instanceof Array);
+
+
+const arr = [4,4,4,2,2,2,8,4,4,7,7,7,582,753,951,654,0.2,0.5,.5,.6,.2, 0,1,2,4,7,88,99,77,44,55,88,77,99,0,22,.55,66,77,951,753,850];
+var citrus = arr.sort((a, b) => a - b);
+
+let textnum = [];
+for (let i = 0; i < arr.length; i++) {
+    // console.log(arr[i])
+    if (!textnum.includes(arr[i])) { 
+        // console.log(arr[i]);
+        textnum.push(arr[i]);
+    }
+}
+
+// var textlenth = "<ul>";
+// textnum.forEach(eachFunction);
+// textlenth += "</ul>";
+
+// document.getElementById("lowest_number").innerHTML = textlenth;
+// function eachFunction(value,index){
+//     // console.log(value);
+//     if(index <= 2){
+//         textlenth += "<li>" + value + "</li>";
+//     }
+    
+// }   
+
+
+
+var lowset = textnum.slice(0,3);
+console.log(lowset);
+for (let a in lowset) {
+    document.getElementById('lowest_number_second').innerHTML += '<li>' + lowset[a] + '</li>';
+}
+
+var highest = textnum.slice(0,3).reverse();
+for (let a in highest) {
+    document.getElementById('highet_numner').innerHTML += '<li>' + highest[a] + '</li>';
+}
+let count = {};
+citrus.forEach(function(x){
+    // console.log(x);
+    var countmain = count[x] || 0;  3 
+    count[x] = countmain + 1;
+});
+const countmain = Object.entries(count)
+for (const [key, value] of countmain) {
+    document.getElementById('countlength').innerHTML += '<li>' + key + ':' + value + '</li>';
+}
+console.log(count);
+
+
+
+class Book {
+  constructor(title, author, year) {
+    this.title = title;
+    this.author = author;
+    this.year = year;
+  }
+}
+
+class Library {
+  constructor() {
+    this.books = [];
+  }
+
+  // Method to add a new book
+  addBook(book) {
+    this.books.push(book);
+    console.log(`Book "${book.title}" added to the library.`);
+  }
+
+  // Method to remove a book by its title
+  removeBook(title) {
+    const index = this.books.findIndex(book => book.title === title);
+    if (index !== -1) {
+      const removedBook = this.books.splice(index, 1)[0];
+      console.log(`Book "${removedBook.title}" removed from the library.`);
+    } else {
+      console.log(`No book found with the title "${title}".`);
+    }
+  }
+
+  // Optional: Method to display all books in the library
+  displayBooks() {
+    if (this.books.length > 0) {
+      this.books.forEach(book => {
+        console.log(`Title: ${book.title}, Author: ${book.author}, Year: ${book.year}`);
+      });
+    } else {
+      console.log("No books in the library.");
+    }
+  }
+}
+
+// Example usage:
+const library = new Library();
+const book1 = new Book("Title 1", "Author 1", 2021);
+const book2 = new Book("Title 2", "Author 2", 2022);
+
+library.addBook(book1);
+library.addBook(book2);
+library.displayBooks(); // To show all books
+
+library.removeBook("Title 1"); // Removes book with title "Title 1"
+library.displayBooks(); // To show remaining books
+
+</script>
+
+</body>
+</html>
+
